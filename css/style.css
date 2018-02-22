@@ -97,14 +97,17 @@ div.textbox_friends{
 
 @keyframes move_mi {
   0% {
+    opacity: 0;
     background-color: #FFFFFF;
     transform: rotateY(-180deg);
   }
   50%{
+    opacity: 1;
     background-image: url("../img/mi.png");
     transform: rotateY(0deg);
   }
   100%{
+    opacity: 0;
     background-color: #FFFFFF;
     transform: rotateY(180deg);
   }
