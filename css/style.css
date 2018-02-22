@@ -93,13 +93,6 @@ div.textbox_friends{
   animation-timing-function: linear;
   animation-fill-mode: forwards;
   animation-iteration-count: infinite;
-  -webkit-animation-name: move_mi;
-  -webkit-animation-duration: 3s;
-  -webkit-animation-delay: 0s;
-  -webkit-animation-direction: reverse;
-  -webkit-animation-timing-function: linear;
-  -webkit-animation-fill-mode: forwards;
-  -webkit-animation-iteration-count: infinite;
 }
 
 @keyframes move_mi {
@@ -107,19 +100,15 @@ div.textbox_friends{
     opacity: 0;
     background-color: #FFFFFF;
     transform: rotateY(-180deg);
-    -webkit-transform: rotateY(-180deg);
   }
   50%{
     opacity: 1;
     background-image: url("../img/mi.png");
     transform: rotateY(0deg);
-    -webkit-background-image: url("../img/mi.png");
-    -webkit-transform: rotateY(0deg);
   }
   100%{
     opacity: 0;
     background-color: #FFFFFF;
     transform: rotateY(180deg);
-    -webkit-transform: rotateY(180deg);
   }
 }
