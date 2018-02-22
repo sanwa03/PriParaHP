@@ -108,9 +108,4 @@ div.textbox_friends{
     background-color: #FFFFFF;
     transform: rotateY(180deg);
   }
-  150%{
-    background-image: url("../img/mi.png");
-    transform: rotateY(360deg);
-  }
-
 }
