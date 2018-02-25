@@ -65,14 +65,14 @@ body::-webkit-scrollbar{
 
 div.box{
   position: absolute;
-  top:1050px;
+  bottom: -20%;
   left: 0px;
   width:100vw;
   height: 20vh;
   background-color: white;
   box-shadow:0px 0px 20px 0px  #FFCCFF inset;
 }
-.Information{
+.box .Information{
   position: absolute;
   top:30px;
   right: 20px;
@@ -84,19 +84,23 @@ td.info1{
 td.info2{
   text-align: right;
 }
-div.textbox_friends{
+.textbox_friends{
   position: absolute;
   top:20px;
   left:20px;
   width: 550px;
-  height:150px;
+  height: 60px;
+  display: inline-block;
+  align-items: left ;
+  vertical-align: middle;
 }
-.textbox_mi{
-  position: absolute;
-  top:10px;
-  left: 0px;
-  width: 48px;
-  height: 44px;
+.textbox_friends .textbox_mi{
+  position: relative;
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+  vertical-align: middle;
+  background-repeat: no-repeat;
   animation-name: move_mi;
   animation-duration: 3s;
   animation-delay: 0s;
@@ -106,14 +110,43 @@ div.textbox_friends{
   animation-iteration-count: infinite;
 }
 .textbox_bou{
-  position: absolute;
-  top: 30px;
-  left: 50px;
+  position: relative;
   width: 26px;
-  height: 8px;
+  height: 10px;
+  display: inline-block;
+  vertical-align: middle;
+  background-repeat: no-repeat;
   animation-name: move_bou;
   animation-duration: 3s;
   animation-delay: 0.2s;
+  animation-direction: reverse;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+}
+.textbox_nn{
+  position: relative;
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+  background-repeat: no-repeat;
+  animation-name: move_nn;
+  animation-duration: 3s;
+  animation-delay: 0.4s;
+  animation-direction: reverse;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+}
+.textbox_na{
+  position: relative;
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+  background-repeat: no-repeat;
+  animation-name: move_na;
+  animation-duration: 3s;
+  animation-delay: 0.6s;
   animation-direction: reverse;
   animation-timing-function: linear;
   animation-fill-mode: forwards;
@@ -147,6 +180,40 @@ div.textbox_friends{
   50%{
     opacity: 1;
     background-image: url("../img/bo.png");
+    transform: rotateY(0deg);
+  }
+  100%{
+    opacity: 0;
+    background-color: #FFFFFF;
+    transform: rotateY(180deg);
+  }
+}
+@keyframes move_nn {
+  0% {
+    opacity: 0;
+    background-color: #FFFFFF;
+    transform: rotateY(-180deg);
+  }
+  50%{
+    opacity: 1;
+    background-image: url("../img/nn.png");
+    transform: rotateY(0deg);
+  }
+  100%{
+    opacity: 0;
+    background-color: #FFFFFF;
+    transform: rotateY(180deg);
+  }
+}
+@keyframes move_na {
+  0% {
+    opacity: 0;
+    background-color: #FFFFFF;
+    transform: rotateY(-180deg);
+  }
+  50%{
+    opacity: 1;
+    background-image: url("../img/na.png");
     transform: rotateY(0deg);
   }
   100%{
