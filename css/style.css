@@ -1,23 +1,35 @@
+body{
+  width: 100vw;
+  height: auto;
+  min-height: 100vh;
+  overflow: scroll;
+}
+body::-webkit-scrollbar{
+  display: none;
+}
 .bg{
   position: absolute;
-  top:0;
-  left: 0;
-  width: 1680px;
-  height: 1050px;
+  top:0px;
+  left: 0px;
+  width: 100vw;
+  height: auto;
+  min-height: 100vh;
   background-position: center center;
   background-repeat: repeat;
   background-attachment: fixed;
   background-size: cover;
-  overflow: scroll;
   opacity: 1;
   background-image: url(../img/bg.jpg);
+  overflow: hidden;
 }
+
 .content{
   position: absolute;
   top:0;
   left:0;
-  width:  1680px;
-  height: 1050px;
+  width:  100vw;
+  height: auto;
+  min-height: 100vh;
   overflow: hidden;
 }
 .content .logo{
@@ -30,14 +42,13 @@
   z-index: 2;
 }
 .content .bgrar{
-  position: absolute;
-  width: 1950px;
+  top: 0px;
+  width: 100vw;
   height: auto;
-  top:0px;
-  bottom:0px;
-  right:-130px;
+  min-height: 100vh;
   background-repeat: no-repeat;
-  background-size:1950px;
+  background-size:cover;
+  background-position: center;
   background-image: url("../img/raxara.png");
   overflow: hidden;
   opacity: 0.5;
@@ -56,8 +67,8 @@ div.box{
   position: absolute;
   top:1050px;
   left: 0px;
-  width:1680px;
-  height: 250px;
+  width:100vw;
+  height: 20vh;
   background-color: white;
   box-shadow:0px 0px 20px 0px  #FFCCFF inset;
 }
@@ -94,6 +105,20 @@ div.textbox_friends{
   animation-fill-mode: forwards;
   animation-iteration-count: infinite;
 }
+.textbox_bou{
+  position: absolute;
+  top: 30px;
+  left: 50px;
+  width: 26px;
+  height: 8px;
+  animation-name: move_bou;
+  animation-duration: 3s;
+  animation-delay: 0.2s;
+  animation-direction: reverse;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+}
 
 @keyframes move_mi {
   0% {
@@ -104,6 +129,24 @@ div.textbox_friends{
   50%{
     opacity: 1;
     background-image: url("../img/mi.png");
+    transform: rotateY(0deg);
+  }
+  100%{
+    opacity: 0;
+    background-color: #FFFFFF;
+    transform: rotateY(180deg);
+  }
+}
+
+@keyframes move_bou {
+  0% {
+    opacity: 0;
+    background-color: #FFFFFF;
+    transform: rotateY(-180deg);
+  }
+  50%{
+    opacity: 1;
+    background-image: url("../img/bo.png");
     transform: rotateY(0deg);
   }
   100%{
