@@ -7,6 +7,10 @@ body{
 body::-webkit-scrollbar{
   display: none;
 }
+p{
+  display: inline-block;
+  vertical-align: middle;
+}
 .bg{
   position: absolute;
   top:0px;
@@ -63,7 +67,7 @@ body::-webkit-scrollbar{
   z-index: 2;
 }
 
-div.box{
+.box{
   position: absolute;
   bottom: -20%;
   left: 0px;
@@ -90,16 +94,13 @@ td.info2{
   left:20px;
   width: 550px;
   height: 60px;
-  display: inline-block;
+  display: inline;
   align-items: left ;
-  vertical-align: middle;
 }
-.textbox_friends .textbox_mi{
+.textbox_mi{
   position: relative;
   width: 50px;
   height: 50px;
-  display: inline-block;
-  vertical-align: middle;
   background-repeat: no-repeat;
   animation-name: move_mi;
   animation-duration: 3s;
@@ -113,8 +114,6 @@ td.info2{
   position: relative;
   width: 26px;
   height: 10px;
-  display: inline-block;
-  vertical-align: middle;
   background-repeat: no-repeat;
   animation-name: move_bou;
   animation-duration: 3s;
@@ -128,7 +127,6 @@ td.info2{
   position: relative;
   width: 50px;
   height: 50px;
-  display: inline-block;
   background-repeat: no-repeat;
   animation-name: move_nn;
   animation-duration: 3s;
@@ -142,11 +140,23 @@ td.info2{
   position: relative;
   width: 50px;
   height: 50px;
-  display: inline-block;
   background-repeat: no-repeat;
   animation-name: move_na;
   animation-duration: 3s;
   animation-delay: 0.6s;
+  animation-direction: reverse;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+}
+.textbox_to{
+  position: relative;
+  width: 50px;
+  height: 50px;
+  background-repeat: no-repeat;
+  animation-name: move_to;
+  animation-duration: 3s;
+  animation-delay: 0.8s;
   animation-direction: reverse;
   animation-timing-function: linear;
   animation-fill-mode: forwards;
@@ -214,6 +224,23 @@ td.info2{
   50%{
     opacity: 1;
     background-image: url("../img/na.png");
+    transform: rotateY(0deg);
+  }
+  100%{
+    opacity: 0;
+    background-color: #FFFFFF;
+    transform: rotateY(180deg);
+  }
+}
+@keyframes move_to {
+  0% {
+    opacity: 0;
+    background-color: #FFFFFF;
+    transform: rotateY(-180deg);
+  }
+  50%{
+    opacity: 1;
+    background-image: url("../img/to.png");
     transform: rotateY(0deg);
   }
   100%{
