@@ -84,14 +84,14 @@ td.info1{
 td.info2{
   text-align: right;
 }
-.textbox_friends{
+.textbox_friends {
   position: absolute;
-  top:20px;
-  left:20px;
+  top: 20px;
+  left: 20px;
   width: 550px;
-  height: 60px;
+  height: 130px;
   display: inline;
-  align-items: left ;
+  align-items: left;
 }
 .textbox_friends p{
   display: inline-block;
