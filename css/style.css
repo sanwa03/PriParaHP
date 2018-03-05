@@ -68,15 +68,36 @@ body::-webkit-scrollbar{
   bottom: -20%;
   left: 0px;
   width:100vw;
-  height: 20vh;
+  height: 30vh;
   background-color: white;
   box-shadow:0px 0px 20px 0px  #FFCCFF inset;
+}
+@media screen and (max-width: 450px) {
+  .box{
+    position: absolute;
+    bottom: -20%;
+    left: 0px;
+    width:100vw;
+    height: 50vh;
+    background-color: white;
+    box-shadow:0px 0px 20px 0px  #FFCCFF inset;
+  }
 }
 .box .Information{
   position: absolute;
   top:30px;
   right: 20px;
   border:1px solid #FFCCFF;
+}
+@media screen and (max-width: 950px){
+  .box .Information{
+    position: absolute;
+    top:unset;
+    bottom: 10px;
+    right: 10px;
+    left:10px;
+    border:1px solid #FFCCFF;
+  }
 }
 td.info1{
   text-align: left;
@@ -85,7 +106,7 @@ td.info2{
   text-align: right;
 }
 .textbox_friends {
-  position: absolute;
+  position: relative;
   top: 20px;
   left: 20px;
   width: 550px;
@@ -96,6 +117,11 @@ td.info2{
 .textbox_friends p{
   display: inline-block;
   vertical-align: middle;
+}
+@media screen and (max-width: 450px){
+  .textbox_friends p{
+    zoom:65%;
+  }
 }
 .textbox_mi{
   position: relative;
