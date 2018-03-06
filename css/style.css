@@ -1,18 +1,175 @@
-body{
+#app{
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  min-width: 1100px; min-height: 650px;
+  background-color: #FFFFFF;
+  overflow: hidden;
+  opacity: 0;
+  z-index: 3;
+  animation: show-bg 4s ease-out 0s forwards;
+}
+#prologue {
+  position: absolute;
+  top: 0; left: 0;
+  width: 200%; height: 100%;
+}
+p {
+  margin: 0;
+}
+/*** 共通: .word-1, .word-2 ***/
+#prologue .word-1,
+#prologue .word-2 {
+  position: absolute;
+  top: calc(50% - 60px);
+  height: 120px;
+}
+#prologue .word-1 div,
+ #prologue .word-2 div {
+   float: left;
+   width: 120px; height: 120px;
+   border: dashed 1px #888;
+   border-right: none;
+   box-sizing: border-box;
+}
+#prologue .word-1 div p,
+#prologue .word-2 div p {
+  width: 100%; height: 100%;
+  font-size: 80px;
+  color: #d644a9;
+  text-align: center;
+  line-height: 120px;
+  opacity: 0;
+}
+#prologue .word-1 div:last-child,
+#prologue .word-2 div:last-child {
+  border-right: dashed 1px #888;
+}
+#prologue .word-1:after,
+#prologue .word-2:after {
+  content: ""; display: block; clear: both;
+}
+/*** .word-1 ***/
+#prologue .word-1 { left: calc(25% - 240px); }
+
+/*** .word-2 ***/
+#prologue .word-2 { right: 80px; }
+
+/*** .connect-line ***/
+#prologue .connect-line {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+}
+#prologue .connect-line .point {
+  position: absolute; top: calc(50% + 90px);
+  width: 20px; height: 20px;
+  background-color: #666;
+  border-radius: 50%;
+}
+#prologue .connect-line .point-1 { left: calc(25% - 250px); }
+#prologue .connect-line .point-2 { left: calc(25% + 350px); }
+#prologue .connect-line .point-3 { right: 70px; transform: scale(0); }
+
+#prologue .line {
+  position: absolute;
+  top: calc(50% + 99px);
+  height: 1px;
+  overflow: hidden;
+}
+#prologue .line:after {
+  content: ""; display: block;
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: #666;
+  transform: translateX(-100%);
+}
+#prologue .line-1 { width: 600px; left: calc(25% - 240px); }
+#prologue .line-2 {
+  width: calc(((50% - 480px) / 2) + (50% - 80px));
+  right: 80px;
+}
+
+/*** .word-1 ***/
+#prologue .word-1 div:nth-child(1) p { animation: show-word 0.6s ease-out 0.0s forwards; }
+#prologue .word-1 div:nth-child(2) p { animation: show-word 0.6s ease-out 0.2s forwards; }
+#prologue .word-1 div:nth-child(3) p { animation: show-word 0.6s ease-out 0.4s forwards; }
+#prologue .word-1 div:nth-child(4) p { animation: show-word 0.6s ease-out 0.6s forwards; }
+#prologue .word-1 div:nth-child(5) p { animation: show-word 0.6s ease-out 0.8s forwards; }
+
+/*** .line-1 ***/
+#prologue .line-1:after { animation: draw-line 1.2s ease 0s forwards; }
+
+/*** #prologue: ここで右側に移動する ***/
+#prologue { animation: move-prologue 0.8s ease 1.2s forwards; }
+
+/*** .line-2 ***/
+#prologue .line-2:after { animation: slash-line 1.6s ease 1.2s forwards; }
+
+/*** .point-3 ***/
+#prologue .point-3 { animation: put-point 1s ease-out 2s forwards; }
+
+/*** .word-2 ***/
+#prologue .word-2 div:nth-child(1) p { animation: show-word 0.6s ease-out 1.6s forwards; }
+#prologue .word-2 div:nth-child(2) p { animation: show-word 0.6s ease-out 1.8s forwards; }
+#prologue .word-2 div:nth-child(3) p { animation: show-word 0.6s ease-out 2.0s forwards; }
+#prologue .word-2 div:nth-child(4) p { animation: show-word 0.6s ease-out 2.2s forwards; }
+#prologue .word-2 div:nth-child(5) p { animation: show-word 0.6s ease-out 2.4s forwards; }
+
+/*** .word-2: ここで次のパートに繋ぐための回転 ***/
+#prologue .word-2 { animation: rotate-word-2 0.4s ease 2.8s forwards; }
+@keyframes show-word {
+  0%   { transform: scale(0.4); opacity: 0; }
+  70%  { transform: scale(1.05); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+@keyframes draw-line {
+  0%   { transform: translateX(-100%); }
+  100% { transform: translateX(0%); }
+}
+@keyframes slash-line {
+  0%   { transform: translateX(-100%); }
+  50%  { transform: translateX(0%); }
+  100% { transform: translateX(100%); }
+}
+@keyframes move-prologue {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+@keyframes put-point {
+  0%   { transform: scale(0); }
+  70%  { transform: scale(2); }
+  100% { transform: scale(0); }
+}
+@keyframes rotate-word-2 {
+  0%   { transform: rotate(0deg); opacity: 1; }
+  100% { transform: rotate(-90deg); opacity: 0; }
+}
+@keyframes show-bg {
+  0%{opacity: 1;}
+  80%{opacity: 1;}
+  100%{opacity: 0;}
+}
+
+#body {
   width: 100vw;
   height: auto;
   min-height: 100vh;
   overflow: scroll;
+  display: block;
 }
-body::-webkit-scrollbar{
+
+#body::-webkit-scrollbar {
   display: none;
 }
-.bg{
+
+.bg {
   position: absolute;
-  top:0px;
+  top: 0px;
   left: 0px;
   width: 100vw;
-  height: auto;
+  height: 100vh;
   min-height: 100vh;
   background-position: center center;
   background-repeat: repeat;
@@ -20,19 +177,19 @@ body::-webkit-scrollbar{
   background-size: cover;
   opacity: 1;
   background-image: url(../img/bg.jpg);
-  overflow: hidden;
+  overflow: scroll;
 }
 
-.content{
+.contents {
   position: absolute;
-  top:0;
-  left:0;
-  width:  100vw;
+  top: 0px;
+  left: 0px;
+  width: 100vw;
   height: auto;
   min-height: 100vh;
-  overflow: hidden;
+  overflow: scroll;
 }
-.content .logo{
+.contents .logo {
   position: absolute;
   top: 10px;
   left: 10px;
@@ -41,89 +198,91 @@ body::-webkit-scrollbar{
   background-image: url(../img/logo.png);
   z-index: 2;
 }
-.content .bgrar{
+
+.contents .bgrar {
   top: 0px;
+  left: 0px;
   width: 100vw;
-  height: auto;
+  height: 100vh;
   min-height: 100vh;
   background-repeat: no-repeat;
-  background-size:cover;
+  background-size: cover;
   background-position: center;
   background-image: url("../img/raxara.png");
   overflow: hidden;
   opacity: 0.5;
- }
-.content .character{
-  position: absolute;
-  top:500px;
-  right: 0px;
-  width:960px;
-  height:484px;
-  background-image: url(../img/);
-  z-index: 2;
 }
-
-.box{
+.box {
   position: absolute;
-  bottom: -20%;
-  left: 0px;
-  width:100vw;
+  bottom: 0%;
+  left: 0;
+  width: 100vw;
   height: 30vh;
   background-color: white;
-  box-shadow:0px 0px 20px 0px  #FFCCFF inset;
+  box-shadow: 0px 0px 20px 0px #FFCCFF inset;
+  overflow: scroll;
 }
+
 @media screen and (max-width: 450px) {
-  .box{
+  .box {
     position: absolute;
-    bottom: -20%;
+    bottom: -30%;
     left: 0px;
-    width:100vw;
+    width: 100vw;
     height: 50vh;
     background-color: white;
-    box-shadow:0px 0px 20px 0px  #FFCCFF inset;
+    box-shadow: 0px 0px 20px 0px #FFCCFF inset;
   }
 }
-.box .Information{
+
+.box .Information {
   position: absolute;
-  top:30px;
+  top: 30px;
   right: 20px;
-  border:1px solid #FFCCFF;
+  border: 1px solid #FFCCFF;
 }
-@media screen and (max-width: 950px){
-  .box .Information{
+
+@media screen and (max-width: 950px) {
+  .box .Information {
     position: absolute;
-    top:unset;
+    top: unset;
     bottom: 10px;
     right: 10px;
-    left:10px;
-    border:1px solid #FFCCFF;
+    left: 10px;
+    border: 1px solid #FFCCFF;
   }
 }
-td.info1{
+
+td.info1 {
   text-align: left;
 }
-td.info2{
+
+td.info2 {
   text-align: right;
 }
+
 .textbox_friends {
-  position: relative;
+  position: absolute;
   top: 20px;
   left: 20px;
-  width: 550px;
+  width: 500px;
   height: 130px;
   display: inline;
   align-items: left;
 }
-.textbox_friends p{
+
+.textbox_friends p {
   display: inline-block;
   vertical-align: middle;
 }
-@media screen and (max-width: 450px){
-  .textbox_friends p{
-    zoom:65%;
+
+@media screen and (max-width: 450px) {
+  .textbox_friends p {
+    zoom: 65%;
   }
 }
-.textbox_mi{
+
+.textbox_mi {
   position: relative;
   width: 50px;
   height: 50px;
@@ -136,7 +295,8 @@ td.info2{
   animation-fill-mode: forwards;
   animation-iteration-count: infinite;
 }
-.textbox_bou{
+
+.textbox_bou {
   position: relative;
   width: 50px;
   height: 50px;
@@ -149,7 +309,8 @@ td.info2{
   animation-fill-mode: forwards;
   animation-iteration-count: infinite;
 }
-.textbox_nn{
+
+.textbox_nn {
   position: relative;
   width: 50px;
   height: 50px;
@@ -162,7 +323,8 @@ td.info2{
   animation-fill-mode: forwards;
   animation-iteration-count: infinite;
 }
-.textbox_na{
+
+.textbox_na {
   position: relative;
   width: 50px;
   height: 50px;
@@ -175,7 +337,8 @@ td.info2{
   animation-fill-mode: forwards;
   animation-iteration-count: infinite;
 }
-.textbox_to{
+
+.textbox_to {
   position: relative;
   width: 50px;
   height: 50px;
@@ -188,20 +351,22 @@ td.info2{
   animation-fill-mode: forwards;
   animation-iteration-count: infinite;
 }
-.textbox_mo{
-   position: relative;
-   width: 50px;
-   height: 50px;
-   background-repeat: no-repeat;
-   animation-name: move_mo;
-   animation-duration: 3s;
-   animation-delay: 1s;
-   animation-direction: reverse;
-   animation-timing-function: linear;
-   animation-fill-mode: forwards;
-   animation-iteration-count: infinite;
- }
-.textbox_da{
+
+.textbox_mo {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  background-repeat: no-repeat;
+  animation-name: move_mo;
+  animation-duration: 3s;
+  animation-delay: 1s;
+  animation-direction: reverse;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+}
+
+.textbox_da {
   position: relative;
   width: 50px;
   height: 50px;
@@ -214,7 +379,8 @@ td.info2{
   animation-fill-mode: forwards;
   animation-iteration-count: infinite;
 }
-.textbox_chi{
+
+.textbox_chi {
   position: relative;
   width: 50px;
   height: 50px;
@@ -227,7 +393,8 @@ td.info2{
   animation-fill-mode: forwards;
   animation-iteration-count: infinite;
 }
-.textbox_ex{
+
+.textbox_ex {
   position: relative;
   width: 50px;
   height: 50px;
@@ -235,6 +402,132 @@ td.info2{
   animation-name: move_ex;
   animation-duration: 3s;
   animation-delay: 1.6s;
+  animation-direction: reverse;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+}
+
+.textbox_mi2 {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  background-repeat: no-repeat;
+  animation-name: move_mi;
+  animation-duration: 3s;
+  animation-delay: 1.8s;
+  animation-direction: reverse;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+}
+
+.textbox_bou2 {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  background-repeat: no-repeat;
+  animation-name: move_bou;
+  animation-duration: 3s;
+  animation-delay: 2.0s;
+  animation-direction: reverse;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+}
+
+.textbox_nn2 {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  background-repeat: no-repeat;
+  animation-name: move_nn;
+  animation-duration: 3s;
+  animation-delay: 2.2s;
+  animation-direction: reverse;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+}
+
+.textbox_na2 {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  background-repeat: no-repeat;
+  animation-name: move_na;
+  animation-duration: 3s;
+  animation-delay: 2.4s;
+  animation-direction: reverse;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+}
+
+.textbox_a {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  background-repeat: no-repeat;
+  animation-name: move_a;
+  animation-duration: 3s;
+  animation-delay: 2.6s;
+  animation-direction: reverse;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+}
+
+.textbox_i {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  background-repeat: no-repeat;
+  animation-name: move_i;
+  animation-duration: 3s;
+  animation-delay: 2.8s;
+  animation-direction: reverse;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+}
+
+.textbox_do {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  background-repeat: no-repeat;
+  animation-name: move_do;
+  animation-duration: 3s;
+  animation-delay: 3.0s;
+  animation-direction: reverse;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+}
+
+.textbox_ru {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  background-repeat: no-repeat;
+  animation-name: move_ru;
+  animation-duration: 3s;
+  animation-delay: 3.2s;
+  animation-direction: reverse;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+}
+
+.textbox_ex2 {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  background-repeat: no-repeat;
+  animation-name: move_ex;
+  animation-duration: 3s;
+  animation-delay: 3.4s;
   animation-direction: reverse;
   animation-timing-function: linear;
   animation-fill-mode: forwards;
@@ -386,7 +679,7 @@ td.info2{
   }
   50%{
     opacity: 1;
-    background-image: url("../img/!.png");
+    background-image: url("../img/ex.png");
     transform: rotateY(0deg);
   }
   100%{
@@ -395,3 +688,72 @@ td.info2{
     transform: rotateY(180deg);
   }
 }
+@keyframes move_a {
+  0% {
+    opacity: 0;
+    background-color: #FFFFFF;
+    transform: rotateY(-180deg);
+  }
+  50%{
+    opacity: 1;
+    background-image: url("../img/a.png");
+    transform: rotateY(0deg);
+  }
+  100%{
+    opacity: 0;
+    background-color: #FFFFFF;
+    transform: rotateY(180deg);
+  }
+}
+@keyframes move_i {
+  0% {
+    opacity: 0;
+    background-color: #FFFFFF;
+    transform: rotateY(-180deg);
+  }
+  50%{
+    opacity: 1;
+    background-image: url("../img/i.png");
+    transform: rotateY(0deg);
+  }
+  100%{
+    opacity: 0;
+    background-color: #FFFFFF;
+    transform: rotateY(180deg);
+  }
+}
+@keyframes move_do {
+  0% {
+    opacity: 0;
+    background-color: #FFFFFF;
+    transform: rotateY(-180deg);
+  }
+  50%{
+    opacity: 1;
+    background-image: url("../img/do.png");
+    transform: rotateY(0deg);
+  }
+  100%{
+    opacity: 0;
+    background-color: #FFFFFF;
+    transform: rotateY(180deg);
+  }
+}
+@keyframes move_ru {
+  0% {
+    opacity: 0;
+    background-color: #FFFFFF;
+    transform: rotateY(-180deg);
+  }
+  50%{
+    opacity: 1;
+    background-image: url("../img/ru.png");
+    transform: rotateY(0deg);
+  }
+  100%{
+    opacity: 0;
+    background-color: #FFFFFF;
+    transform: rotateY(180deg);
+  }
+}
+
