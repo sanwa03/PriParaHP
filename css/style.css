@@ -3,11 +3,9 @@
   top: 0; left: 0;
   width: 100%; height: 100%;
   min-width: 1100px; min-height: 650px;
-  background-color: #FFFFFF;
-  overflow: hidden;
-  opacity: 0;
-  z-index: 3;
-  animation: show-bg 4s ease-out 0s forwards;
+  background-position: center center;
+  z-index: 4;
+  opacity:1;
 }
 #prologue {
   position: absolute;
@@ -25,12 +23,12 @@ p {
   height: 120px;
 }
 #prologue .word-1 div,
- #prologue .word-2 div {
-   float: left;
-   width: 120px; height: 120px;
-   border: dashed 1px #888;
-   border-right: none;
-   box-sizing: border-box;
+#prologue .word-2 div {
+  float: left;
+  width: 120px; height: 120px;
+  border: dashed 1px #FFFFFF;
+  border-right: none;
+  box-sizing: border-box;
 }
 #prologue .word-1 div p,
 #prologue .word-2 div p {
@@ -43,7 +41,7 @@ p {
 }
 #prologue .word-1 div:last-child,
 #prologue .word-2 div:last-child {
-  border-right: dashed 1px #888;
+  border-right: dashed 1px #FFFFFF;
 }
 #prologue .word-1:after,
 #prologue .word-2:after {
@@ -64,7 +62,7 @@ p {
 #prologue .connect-line .point {
   position: absolute; top: calc(50% + 90px);
   width: 20px; height: 20px;
-  background-color: #666;
+  background-color: #FFFFFF;
   border-radius: 50%;
 }
 #prologue .connect-line .point-1 { left: calc(25% - 250px); }
@@ -82,7 +80,7 @@ p {
   position: absolute;
   top: 0; left: 0;
   width: 100%; height: 100%;
-  background-color: #666;
+  background-color: #FFFFFF;
   transform: translateX(-100%);
 }
 #prologue .line-1 { width: 600px; left: calc(25% - 240px); }
@@ -146,11 +144,118 @@ p {
   0%   { transform: rotate(0deg); opacity: 1; }
   100% { transform: rotate(-90deg); opacity: 0; }
 }
+@keyframes bg{
+  0% { /* 初期状態 */
+    transform: translate(0, 0) scale(1);
+    width: 100%; height: 100%;
+    border-radius: 0;
+  }
+  100% { /* 小さなボール状に変化 */
+    left: calc(50% - 770px);
+    top: calc(50% - 440px);
+    transform: scale(1);
+    width: 90%; height: 90%;
+    border-radius: 10%;
+    opacity: 0;
+  }
+}
+
+#second{
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  min-width: 1100px; min-height: 650px;
+  background-color: #eee;
+  animation: show-bg 1s ease 6s forwards;
+  margin: 0 auto;
+  z-index: 3;
+}
+#screen{
+  position: absolute;
+  left: calc(50% - 770px);
+  top: calc(50% - 440px);
+  width: 90vw; height: 90vh;
+  background-color: #fff;
+  border: solid 10px #fff;
+  box-shadow: 0 0 20px #444;
+  overflow: hidden;
+}
+.paint {
+  position: absolute;
+  top: 0; left: 0;
+  width: 200%; height: 200%;
+  background-color: #444;
+  display: inline-block;
+}
+.images {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+}
+.images .image {
+  position: absolute;
+  overflow: hidden;
+}
+.images .image:after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%; height: 100%;
+  background-size: cover;
+  background-position: center;
+}
+.images .image:nth-child(1):after { background-image: url(../img/yui.jpg); }
+.images .image:nth-child(2):after { background-image: url(../img/raxara.jpg); }
+.images .image:nth-child(3):after { background-image: url(../img/mirei.jpg); }
+.images .image:nth-child(4):after { background-image: url(../img/sohuxi.jpg); }
+
+@keyframes fadeout_paint {
+  0% { /* 初期状態 */
+    transform: translate(0, 0) scale(1);
+    width: 100%; height: 100%;
+    border-radius: 0;
+    opacity: 0;
+  }
+  30% { /* 小さなボール状に変化 */
+    transform: translate(800px, 400px) scale(1);
+    width: 40px; height: 40px;
+    border-radius: 50%;
+  }
+  50% {
+    transform: translate(800px, 400px) scale(1.3);
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    opacity: 1;
+  }
+  70% { /* バウンドしたように弾ませる */
+    transform: translate(800px, 400px) scale(1);
+    width: 40px; height: 40px;
+    border-radius: 50%;
+  }
+  100% { /* 画面左に逃げていく */
+    transform: translate(-40px, 400px) scale(1);
+    width: 40px; height: 40px;
+    border-radius: 50%;
+  }
+}
+.paint { animation: fadeout_paint 1s ease 3.2s forwards; }
+
+@keyframes show_image_w {
+  0%   { width: 0%; }
+  100% { width: 100%; }
+}
+@keyframes show_image_h {
+  0%   { height: 0%; }
+  100% { height: 100%; }
+}
 @keyframes show-bg {
   0%{opacity: 1;}
-  80%{opacity: 1;}
   100%{opacity: 0;}
 }
+.images .image:nth-child(1) { width: 0%; height: 100%;  top: 0; left: 0;  animation: show_image_w 0.6s ease 4.2s forwards; }
+.images .image:nth-child(2) { width: 100%; height: 0%;  top: 0; left: 0;  animation: show_image_h 0.6s ease 4.6s forwards; }
+.images .image:nth-child(3) { width: 0%; height: 100%;  top:0; right:0;   animation: show_image_w 0.6s ease 5.0s forwards; }
+.images .image:nth-child(4) { width: 100%; height: 0%;bottom:0; left:0; animation: show_image_h 0.6s ease 5.4s forwards; }
 
 #body {
   width: 100vw;
@@ -196,7 +301,6 @@ p {
   width: 370px;
   height: 300px;
   background-image: url(../img/logo.png);
-  z-index: 2;
 }
 
 .contents .bgrar {
