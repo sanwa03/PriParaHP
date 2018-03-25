@@ -301,7 +301,6 @@ p {
   width: 370px;
   height: 300px;
   background-image: url(../img/logo.png);
-  z-index: 2;
 }
 .bgrar {
   width: 100vw;
