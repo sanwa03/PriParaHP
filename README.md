@@ -1,8 +1,4 @@
-<style>
-    h1{text-align:center}
-    h2{color:blue;border-bottom:2px solid}
-    h3{color:indigo;border-bottom:2px solid}
-</style>
+
 # アイドルタイムプリパラ！
 ポートフォリオ？でもない完全趣味で制作中サイト
 メインコンテンツはまだ殆ど無いです
@@ -13,3 +9,5 @@
 未実装
 画面遷移（ブラウザ読み込みなし）をやりたいと思っている。
 イメージ的にはクリックすると横からニュルっと出てくる感じ。
+## 確認
+https://sanwa03.github.io/PriParaHP/
